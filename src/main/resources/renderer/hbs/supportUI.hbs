@@ -1,0 +1,71 @@
+<script type="text/javascript" nonce="{{this}}">
+    window.addEventListener('load', function () {
+      var node = document.createElement('li');
+      var supportDropDown = document.getElementById("header-support-menu").childNodes[3]
+      supportDropDown.appendChild(node).innerHTML ='<a id="createSupportIssueModal" class="resource-info-modal-link" data-target="#resource-info-modal" data-toggle="modal">Open Support Case</a>'
+      var csrfValue = document.querySelector("meta[name='_csrf']").attributes['content'].value;
+      console.log(csrfValue)
+      document.getElementById("createSupportIssueSubmit").addEventListener("click", function(e){
+         var csrfEl = document.getElementById("createSupportIssueSubmit");
+         csrfEl.value = csrfValue;
+         $('#resource-info-modal').modal( 'hide' )
+      });
+    })
+</script>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="resource-info-modal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true"><svg class="close-icon"><use xlink:href="/assets/icons.svg#close-window"></use></svg></span>
+            </button>
+            <h4 class="modal-title">Create New Support Case</h4>
+         </div>
+         <div class="modal-body">
+
+   <form id="createSupportIssueForm" action="/plugin/support/sendSlackMessage" method="post" role="form" class="form-horizontal" data-remote="true">
+   <input id="createSupportIssueCSRF" type="hidden" name="_csrf">
+   <input type="hidden" name="_method" value="PUT" id="_method">
+      <div class="workflow"><div class="workflow-form-options" data-id="9">	
+            <div class="form-group">
+            <label class="control-label" style="padding-left: 5px;padding-bottom: 5px;">Priority</label>
+            <div class="col-sm-12">
+                <select id="priority" name="priority" class="form-control input-sm">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+                </select>
+                <div class="service-plan-details">
+                    <span class="plan-price">Select the appropriate level of priority for the issue <span class="btn-icon btn-icon-info"></span></span>
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <label class="control-label" style="padding-left: 5px;padding-bottom: 5px;">Subject</label>
+            <div class="col-sm-12">
+               <input type="text" class="form-control input-sm" name="subject" value="" id="subject">
+            </div>
+            </div>
+            <div class="form-group">
+               <label class="control-label" style="padding-left: 5px;padding-bottom: 5px;">Description</label>
+               <div class="col-sm-12">
+                <textarea class="form-control" placeholder="" rows="5" name="description" id="description" style="resize: none;"></textarea>
+                <div class="service-plan-details">
+                    <span class="plan-price">Provide a detailed description of the issue experienced <span class="btn-icon btn-icon-info"></span></span>
+                </div>
+               </div>
+            </div>
+</div>
+</div>
+</form>
+
+</div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <button id="createSupportIssueSubmit" type="submit" class="btn btn-primary" data-loading-text="Sending..." data-submit="true" data-auto-reset="false">Create Case</button>
+         </div>
+      </div>
+   </div>
+</div>
