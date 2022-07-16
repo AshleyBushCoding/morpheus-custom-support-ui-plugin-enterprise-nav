@@ -1,1 +1,1 @@
-# Morpheus Example Support UI Plugin
+# Morpheus Enterprise Navigation UI Plugin

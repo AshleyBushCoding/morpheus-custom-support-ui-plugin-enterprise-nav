@@ -1,4 +1,4 @@
-package com.morpheusdata.support
+package com.morpheusdata.enterpriseNav
 
 import com.morpheusdata.core.AbstractGlobalUIComponentProvider
 import com.morpheusdata.core.MorpheusContext
@@ -11,12 +11,13 @@ import com.morpheusdata.views.HTMLResponse
 import com.morpheusdata.views.ViewModel
 import com.morpheusdata.model.UIScope
 import com.morpheusdata.model.Permission
+import java.util.logging.Logger
 
-class SupportUIProvider extends AbstractGlobalUIComponentProvider {
+class EnterpriseNavUIProvider extends AbstractGlobalUIComponentProvider {
 	Plugin plugin
 	MorpheusContext morpheus
 
-	SupportUIProvider(Plugin plugin, MorpheusContext context) {
+	EnterpriseNavUIProvider(Plugin plugin, MorpheusContext context) {
 		this.plugin = plugin
 		this.morpheus = context
 	}
@@ -33,20 +34,20 @@ class SupportUIProvider extends AbstractGlobalUIComponentProvider {
 
 	@Override
 	String getCode() {
-		'support-ui'
+		'enterprise-nav-ui'
 	}
 	
 	String getProviderCode() {
-		'support-ui'
+		'enterprise-nav-ui'
 	}
 
 	@Override
 	String getName() {
-		'Support Issue UI'
+		'Enterprise Navigation UI'
 	}
 	
 	String getProviderName() {
-		'Support Issue UI'
+		'Enterprise Navigation UI'
 	}
 
 	@Override
@@ -54,7 +55,7 @@ class SupportUIProvider extends AbstractGlobalUIComponentProvider {
 		ViewModel<String> model = new ViewModel<String>()
 		def nonse = morpheus.getWebRequest().getNonceToken()
 		model.object = nonse.toString()
-		getRenderer().renderTemplate("hbs/supportUI", model)
+		getRenderer().renderTemplate("hbs/enterpriseNavUI", model)
 	}
 
 	@Override
