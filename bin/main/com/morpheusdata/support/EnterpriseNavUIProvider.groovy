@@ -66,7 +66,12 @@ class EnterpriseNavUIProvider extends AbstractGlobalUIComponentProvider {
 
 	@Override
 	ContentSecurityPolicy getContentSecurityPolicy() {
-		def csp = new ContentSecurityPolicy()
+		ContentSecurityPolicy csp = new ContentSecurityPolicy()
+		csp.scriptSrc = '*.lumen.com assets.ctl.io'
+		csp.frameSrc = '*.lumen.com'
+		csp.imgSrc = '*.lumen.com'
+		csp.styleSrc = 'https: *.bootstrapcdn.com assets.ctl.io lib.lumen.com'
+		csp.connectSrc = '*.lumen.com assets.ctl.io'
 		csp
 	}
 }
