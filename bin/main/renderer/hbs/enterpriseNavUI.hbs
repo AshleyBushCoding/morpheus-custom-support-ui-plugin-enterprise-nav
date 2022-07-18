@@ -1,37 +1,13 @@
-<script type="text/javascript" id="chiScript" src="https://lib.lumen.com/chi/5.14.0/js/chi.js" nonce="{{this}}"></script>
-{{!-- <script type="text/javascript" id="navScript" src="https://lib.lumen.com/EnterpriseNav/4.15.1/dist/po-enterprise-nav/po-enterprise-nav.js" nonce="{{this}}"></script> --}}
-<script type="text/javascript" id="systemJS" src="{{ asset "/system.js"}}" nonce="{{this}}"></script>
-<script type="text/javascript" id="navScriptIE11" src="https://lib.lumen.com/EnterpriseNav/4.15.1/dist/po-enterprise-nav/p-2c5ac4d6.system.js" nonce="{{this}}"></script>
-{{!-- <script type="text/javascript" id="navBundleStrict" src="{{asset "/enterprise-nav-bundle-strict.js"}}" nonce="{{this}}"></script> --}}
-
-
-
-<enterprise-nav-switcher id="external-switcher"></enterprise-nav-switcher>
-<enterprise-nav-menu></enterprise-nav-menu>
-<chi-button id="fake-button" color="primary" uppercase> Hi Ash</chi-button>
+<script type="text/javascript" id="chiScript" src="https://lib.lumen.com/chi/5.16.0/js/chi.js" nonce="{{this}}"></script>
+<script type="text/javascript" id="navScript" src="https://lib.lumen.com/EnterpriseNav/4.15.1/dist/po-enterprise-nav/po-enterprise-nav.js" nonce="{{this}}"></script>
 
 <script type="text/javascript" nonce="{{this}}">
 
    const chiScript = document.getElementById('chiScript');
-   const systemJS = document.getElementById('systemJS');
-   const navScriptIE11 = document.getElementById('navScriptIE11');
-   {{!-- const navBundleStrict = document.getElementById('navBundleStrict'); --}}
+   const navScript = document.getElementById('navScript');
 
    document.head.appendChild(chiScript);
-   document.head.appendChild(systemJS);
-   document.head.appendChild(navScriptIE11);
-
-   {{!-- document.head.appendChild(navBundleStrict); --}}
-
-
-   //const chiJS = document.createElement('script');
-   //chiJS.src = 'https://lib.lumen.com/chi/5.14.0/js/chi.js';
-   //document.head.appendChild(chiJS);
-
-   // adding nav JS
-   // const eNavJS = document.createElement('script');
-   // eNavJS.src = 'https://lib.lumen.com/EnterpriseNav/4.15.1/dist/po-enterprise-nav/po-enterprise-nav.js';
-   // document.head.appendChild(eNavJS);
+   document.head.appendChild(navScript);
 
    // adding nav CSS
    const eNavCSS = document.createElement('style');
@@ -98,6 +74,11 @@
       )
 
    const eNavMenu = document.createElement('enterprise-nav-menu');
+
+   //from Cris' code--implement when the rest is working correctly
+   {{!-- const container = document.getElementsByClassName('main container service-catalog')[0];
+   container.parentNode.insertBefore(eNavMenu, container); --}}
+
    const container = document.getElementsByClassName('main container')[0];
    container.parentNode.insertBefore(eNavMenu, container);
 

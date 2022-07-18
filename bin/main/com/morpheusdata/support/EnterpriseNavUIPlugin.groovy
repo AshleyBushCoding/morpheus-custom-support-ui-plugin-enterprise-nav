@@ -54,15 +54,4 @@ class EnterpriseNavUIPlugin extends Plugin {
 		return [permission];
 	}
 
-	// not working AT ALL
-	// @Override
-	// ContentSecurityPolicy getContentSecurityPolicy() {
-	// 	ContentSecurityPolicy csp = new ContentSecurityPolicy()
-	// 	csp.scriptSrc = 'lib.lumen.com'
-	// 	csp.frameSrc = 'lib.lumen.com'
-	// 	csp.styleSrc = 'lib.lumen.com'
-	// 	csp.connectSrc = 'lib.lumen.com'
-	// 	csp.imgSRC = 'lib.lumen.com'
-	// 	csp
-	// }
 }
