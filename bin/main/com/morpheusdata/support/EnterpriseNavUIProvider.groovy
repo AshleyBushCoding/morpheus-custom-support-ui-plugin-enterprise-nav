@@ -66,11 +66,11 @@ class EnterpriseNavUIProvider extends AbstractGlobalUIComponentProvider {
 
 	ContentSecurityPolicy getContentSecurityPolicy() {
 		def csp = new ContentSecurityPolicy()
-		csp.scriptSrc = '*.lumen.com *.ctl.io fonts.gstatic.com'
-		csp.frameSrc = '*.lumen.com *.ctl.io fonts.gstatic.com'
-		csp.imgSrc = '*.lumen.com *.ctl.io fonts.gstatic.com'
-		csp.styleSrc = 'https: *.lumen.com *.ctl.io fonts.gstatic.com'
-		csp.connectSrc = 'https: *.lumen.com *.ctl.io fonts.gstatic.com'
+		csp.scriptSrc = '*.lumen.com *.ctl.io'
+		csp.frameSrc = '*.lumen.com *.ctl.io'
+		csp.imgSrc = '*.lumen.com *.ctl.io'
+		csp.styleSrc = 'https: *.lumen.com *.ctl.io'
+		csp.connectSrc = 'https: *.lumen.com *.ctl.io'
 		csp
 	}
 
