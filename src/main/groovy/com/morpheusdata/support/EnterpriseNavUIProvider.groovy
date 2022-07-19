@@ -66,22 +66,12 @@ class EnterpriseNavUIProvider extends AbstractGlobalUIComponentProvider {
 
 	ContentSecurityPolicy getContentSecurityPolicy() {
 		def csp = new ContentSecurityPolicy()
-		csp.scriptSrc = '*.jsdelivr.net fonts.googleapis.com *.lumen.com'
+		csp.scriptSrc = '*.lumen.com'
 		csp.frameSrc = '*.lumen.com'
-		csp.imgSrc = '*.wikimedia.org *.lumen.com'
-		csp.styleSrc = 'https: *.bootstrapcdn.com *.lumen.com'
-		csp.connectSrc = 'https: *.lumen.com fonts.googleapis.com'
+		csp.imgSrc = '*.lumen.com'
+		csp.styleSrc = 'https: *.lumen.com'
+		csp.connectSrc = 'https: *.lumen.com'
 		csp
 	}
 
-	// @Override
-	// ContentSecurityPolicy getContentSecurityPolicy() {
-	// 	ContentSecurityPolicy csp = new ContentSecurityPolicy()
-	// 	csp.scriptSrc = '*.lumen.com fonts.googleapis.com'
-	// 	csp.frameSrc = '*.lumen.com fonts.googleapis.com'
-	// 	csp.imgSrc = '*.lumen.com fonts.googleapis.com'
-	// 	csp.styleSrc = 'https: *.lumen.com fonts.googleapis.com'
-	// 	csp.connectSrc = '*.lumen.com fonts.googleapis.com'
-	// 	csp
-	// }
 }

@@ -5,7 +5,6 @@
 
 <script type="text/javascript" nonce="{{this}}">
 
-   {{!-- const chiStyleSheet = document.getElementById('chiStyleSheet'); --}}
    const chiScript = document.getElementById('chiScript');
    const navScript = document.getElementById('navScript');
 
@@ -68,16 +67,6 @@
    eNavSwitcher.id = "ent-nav-switcher"
    const header = document.getElementById('logo')
    header.parentNode.insertBefore(eNavSwitcher, header.nextSibling);
-
-   document.addEventListener(
-      '_switcherInitialize', 
-      (e) => {console.log('event listener fired.',e.detail, 'and,', e.detail.menu)}
-      )
-   
-   document.body.addEventListener(
-      '_switcherInitialize', 
-      (e) => {console.log('event listener fired and the body heard it.')}
-      )
 
    const eNavMenu = document.createElement('enterprise-nav-menu');
 
@@ -192,10 +181,9 @@
    setTimeout(() => {
       eNavSwitcher.dispatchEvent(initializeEvent);
       eNavMenu.dispatchEvent(initializeEvent);
-      console.log('the setTimeoutFunction has run.');
    }, 1500);
 
-   console.log('I have reached the end of the javascript in the enterpriseNavUI.hbs')
+   console.log('Javascript in the enterpriseNavUI.hbs has completed')
 
 </script>
 
