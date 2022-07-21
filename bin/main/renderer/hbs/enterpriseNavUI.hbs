@@ -54,11 +54,42 @@
       enterprise-nav-menu.chi {
          bottom: 0;
          position: fixed;
-         top: 105px;
+         top: 96px;
+         z-index: 200;
       }
       enterprise-nav-menu.chi nav {
          width: auto;
       }
+
+      .flex-wrapper {
+         margin-top: 210px;
+         min-height: calc(100% -210px);
+      }
+
+      .ent-nav-header-bar {
+         min-height: 40px;   
+      }
+
+      header#header nav ul li a {
+         color: black;
+      }
+
+      header#header nav ul li.active a {
+         color: #0262b9 !important;
+      }
+
+      header#header nav ul li.active a:after {
+         border-bottom-color: #0262b9 !important;
+      }
+
+      .chi .chi-sidenav__drawer-list>li, .chi .chi-sidenav__list>li {
+         width: 100%;   
+      }
+
+      header nav .flex-start {
+         justify-content: center;
+      }
+
    `));
    document.head.appendChild(eNavCSS);
 
@@ -67,6 +98,35 @@
    eNavSwitcher.id = "ent-nav-switcher"
    const header = document.getElementById('logo')
    header.parentNode.insertBefore(eNavSwitcher, header.nextSibling);
+
+
+   const eNavHeaderBar = document.createElement('div');
+   eNavHeaderBar.id = "ent-nav-header-bar";
+   eNavHeaderBar.classList.add('ent-nav-header-bar');
+   const dropdownMenu = document.getElementsByClassName('mainLinks')[0];
+   const dropdownBar = dropdownMenu.parentNode;
+   dropdownBar.id = "menuBar-mainLinks"
+   dropdownBar.parentNode.insertBefore(eNavHeaderBar, dropdownBar);
+
+   //change color and design of menu bar
+   dropdownBar.style.backgroundColor = '#fff';
+   dropdownBar.style.cssText += 'width: calc(100% - 96px); left: 96px; float: right';
+
+   //set up bottom menu
+   const secondaryNav = document.querySelector('[aria-label="Secondary Navigation"]');
+   secondaryNav.style.cssText += 'width: calc(100% - 96px); left: 96px; float: right';
+
+
+   const chiHeaderStart = document.createElement('div');
+   chiHeaderStart.id = "chi-header-start";
+   chiHeaderStart.classList.add('chi-header__start');
+
+   const chiHeaderEnd = document.createElement('div');
+   chiHeaderEnd.id = "chi-header-end";
+   chiHeaderEnd.classList.add('chi-header__end');
+
+   eNavHeaderBar.appendChild(chiHeaderStart);
+   eNavHeaderBar.appendChild(chiHeaderEnd);
 
    const eNavMenu = document.createElement('enterprise-nav-menu');
 
@@ -107,9 +167,9 @@
                   "icon": "icon-file-error-outline",
                   "href": [
                         {
-                           "name": "Network",
+                           "name": "Orchestrate",
                            "origin": [],
-                           "icon": "icon-activity",
+                           "icon": "icon-edge-solutions",
                            "site": {
                               "EG": "https://morph-dev.ea.centurylink.net/"
                            },
@@ -117,9 +177,29 @@
                            "ext": false
                         },
                         {
-                           "name": "Dynamic Connections",
+                           "name": "Admin Users",
                            "origin": [],
-                           "icon": "icon-circle-wrench",
+                           "icon": "icon-circle-user",
+                           "site": {
+                              "EG": "https://morph-dev.ea.centurylink.net/"
+                           },
+                           "href": "/network/map",
+                           "ext": false
+                        },
+                        {
+                           "name": "Network Storage",
+                           "origin": [],
+                           "icon": "icon-database",
+                           "site": {
+                              "EG": "https://morph-dev.ea.centurylink.net/"
+                           },
+                           "href": "/network/map",
+                           "ext": false
+                        },
+                        {
+                           "name": "Analytics",
+                           "origin": [],
+                           "icon": "icon-chart-line",
                            "site": {
                               "EG": "https://morph-dev.ea.centurylink.net/"
                            },
@@ -127,9 +207,9 @@
                            "ext": false
                         },
                         {
-                              "name": "Locations",
+                              "name": "Licenses",
                               "origin": [],
-                              "icon": "icon-circle-minus-outline",
+                              "icon": "icon-file",
                               "site": {
                                  "EG": "https://morph-dev.ea.centurylink.net/"
                               },
@@ -137,9 +217,9 @@
                               "ext": false
                         },
                         {
-                              "name": "Reports",
+                              "name": "API",
                               "origin": [],
-                              "icon": "icon-box-deployment",
+                              "icon": "icon-api",
                               "site": {
                                  "EG": "https://morph-dev.ea.centurylink.net/"
                               },
@@ -147,9 +227,9 @@
                               "ext": false
                         },
                         {
-                              "name": "Topology",
+                              "name": "Billing",
                               "origin": [],
-                              "icon": "icon-bank",
+                              "icon": "icon-file-invoice",
                               "site": {
                                  "EG": "https://morph-dev.ea.centurylink.net/"
                               },
@@ -157,9 +237,9 @@
                               "ext": false
                         },
                         {
-                              "name": "Network",
+                              "name": "Support",
                               "origin": [],
-                              "icon": "icon-bookmark-outline",
+                              "icon": "icon-life-ring",
                               "site": {
                                  "EG": "https://morph-dev.ea.centurylink.net/"
                               },
